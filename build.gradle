@@ -1,3 +1,10 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+}
 plugins {
     id 'java'
 }
@@ -11,9 +18,31 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'org.projectlombok:lombok:1.18.8'
-    compile 'org.apache.commons:commons-lang3:3.9'
-    compile 'com.alibaba:fastjson:1.2.60'
-}
+
+/*subprojects {
+    //指定编译编译.java文件的jdk版本
+    sourceCompatibility = 1.8
+    //确保class文件与targetCompatibility指定版本，或者更新的java虚拟机兼容
+    targetCompatibility = 1.8
+    //引入spring 依赖管理插件
+//    apply plugin: 'io.spring.dependency-management'
+//    //引入springboot 插件
+//    apply plugin: 'org.springframework.boot'
+
+    //指定gradle编译时，针对java文件使用 UTF-8 编码
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+    *//**
+     * 引入之模块jar包
+     *//*
+//    dependencies {
+//        //引入log4j
+//        compile 'org.slf4j:slf4j-api:1.7.25'
+//        //引入Junit 单元测试
+//        testCompile 'junit:junit:4.12'
+//        //引入springboot start test
+//        testCompile('org.springframework.boot:spring-boot-starter-test')
+//    }
+
+}*/
