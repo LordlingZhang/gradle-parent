@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * 代理调用 Person
+ * 动态代理调用 Person
  */
 public class Meipo implements InvocationHandler {
 
@@ -26,7 +26,9 @@ public class Meipo implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("start find");
-        this.target.findLove();
+//        this.target.findLove();
+        // 直接调用
+        method.invoke(this.target, args);
         System.out.println("end find");
         return null;
     }
