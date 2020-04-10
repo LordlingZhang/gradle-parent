@@ -4,4 +4,5 @@ include 'gradle-leetcode'
 include 'gradle-core'
 include 'gradle-app'
 include 'gradle-thread'
+include 'gradle-spring'
 
