@@ -48,6 +48,19 @@ public class ThreadTest {
         System.out.println("end1-" + thread.isAlive());
     }
 
+    /**
+     * 强制终止线程
+     * @throws InterruptedException
+     */
+    @Test
+    public void myThreadInterrupt() throws InterruptedException {
+        MyThreadInterrupt.ThreadInterrupt thread = new MyThreadInterrupt.ThreadInterrupt();
+        System.out.println("begin");
+        thread.start();
+        Thread.sleep(100);
+        thread.interrupt();
+        System.out.println("end");
+    }
 
 
 }
