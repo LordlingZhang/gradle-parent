@@ -1,4 +1,4 @@
-package com.zhangyu.custom;
+package com.zhangyu.proxy.jdk.custom;
 
 import com.zhangyu.proxy.jdk.Person;
 
@@ -23,6 +23,11 @@ public class ZYMeipo implements ZYInvocationHandler{
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("start zyfind");
+//        this.target.findLove();
+        // 直接调用
+        method.invoke(this.target, args);
+        System.out.println("end zyfind");
         return null;
     }
 }

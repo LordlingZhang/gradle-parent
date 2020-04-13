@@ -1,25 +1,24 @@
-package com.zhangyu.custom;
+package com.zhangyu.proxy.jdk.custom;
 
-import com.zhangyu.proxy.jdk.Meipo;
 import com.zhangyu.proxy.jdk.Person;
 import com.zhangyu.proxy.jdk.ZhangYu;
-import org.apache.commons.io.IOUtils;
-import sun.misc.ProxyGenerator;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
  * 测试自定义动态戴丽丽
  */
 public class ZYTestFindLove {
 
+    /**
+     * 自定义实现   JDK动态代理
+     * @param args
+     */
     public static void main(String[] args) {
         // 直接调用
 //        new ZhangYu().findLove();
         // 媒婆调用（动态代理）
         Person person = (Person) new ZYMeipo().getInstance(new ZhangYu());
-//        person.findLove();
+        System.out.println(person.getClass());
+        person.findLove();
         // 原理:
         // 1.拿到被代理对象的引用，然后获取到它所有的接口
         // 2.JDK代理重新生成一个类，并且实现传的代理对象所实现的接口

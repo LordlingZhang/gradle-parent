@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * @description test class
+ * @description test class  jdk动态代理
  */
 public class TestFindLove {
     public static void main(String[] args) {

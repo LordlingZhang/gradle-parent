@@ -1,8 +1,11 @@
-package com.zhangyu.custom;
+package com.zhangyu.proxy.jdk.custom;
 
+import javax.tools.JavaCompiler;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.ToolProvider;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 /**
@@ -17,26 +20,34 @@ public class ZYProxy {
                                           ZYInvocationHandler h)
             throws IllegalArgumentException
     {
-        // 1、生成源代码
-        String proxyStr = generateSrc(interfaces[0]);
-        // 2、把源代码输出，保存 XXX.java文件
         try {
+            // 1、生成源代码
+            String proxyStr = generateSrc(interfaces[0]);
+            // 2、把源代码输出，保存 XXX.java文件
             String path = ZYProxy.class.getResource("").getPath();
             File f = new File(path + "$Proxy0.java");
             FileWriter fw = new FileWriter(f);
             fw.write(proxyStr);
             fw.flush();
             fw.close();
-        } catch (IOException e) {
+            // 3、编译成生成class文件
+            JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+            StandardJavaFileManager manager = compiler.getStandardFileManager(null, null, null);
+            Iterable iterable = manager.getJavaFileObjects(f);
+
+            JavaCompiler.CompilationTask compilationTask = compiler.getTask(null, manager, null, null, null, iterable);
+            compilationTask.call();
+            manager.close();
+
+            // 4、将class内容动态加载到JVM中来
+            Class proxyClass = loader.findClass("$Proxy0");
+            f.delete();
+            // 5、返回被代理的代理对象
+            Constructor c = proxyClass.getConstructor(ZYInvocationHandler.class);
+            return c.newInstance(h);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // 3、编译成生成class文件
-
-        // 4、将class内容动态加载到JVM中来
-
-        // 5、返回被代理的代理对象
-
 
         return null;
     }
