@@ -6,4 +6,6 @@ public interface Person {
      * find
      */
     void findLove();
+
+//    void play();
 }

@@ -24,10 +24,11 @@ public class TestFindLove {
         // 5.然后编译
 
         // 创建class文件
-        byte[] body = ProxyGenerator.generateProxyClass("$proxy1", new Class[]{Person.class});
+        byte[] body = ProxyGenerator.generateProxyClass("$proxy2", new Class[]{Person.class});
         FileOutputStream outputStream = null;
         try {
-            outputStream = new FileOutputStream("D:\\zhangyu\\git_wk\\temp\\$proxy1.class");
+//            outputStream = new FileOutputStream("D:\\zhangyu\\git_wk\\temp\\$proxy1.class");
+            outputStream = new FileOutputStream("/Users/chaochao/Downloads/study/zhangyu/github-code/gradle-parent/file/$proxy2.class");
             outputStream.write(body);
         } catch (IOException e) {
             IOUtils.closeQuietly(outputStream);

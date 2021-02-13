@@ -60,7 +60,7 @@ public class ZYProxy {
      */
     public static String generateSrc(Class<?> interfaces){
         StringBuilder sb = new StringBuilder();
-        sb.append("package com.zhangyu.custom;" + ln);
+        sb.append("package com.zhangyu.proxy.jdk.custom;" + ln);
         sb.append("import java.lang.reflect.Method;" + ln);
         sb.append("import java.lang.Throwable;" + ln);
         sb.append("public class $Proxy0 implements " + interfaces.getName() + "{" + ln);

@@ -6,4 +6,12 @@ public class ZhangYu implements Person {
     public void findLove() {
         System.out.println("i am zhangyu,i want to find love!");
     }
+//
+//    @Override
+//    public void play() {
+//        System.out.println("play....");
+//    }
+
+
+
 }
