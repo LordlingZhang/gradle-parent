@@ -1,6 +1,6 @@
-package com.zhangyu.factory.func;
+package com.zhangyu.designmode.factory.func;
 
-import com.zhangyu.factory.Car;
+import com.zhangyu.designmode.factory.Car;
 
 /**
  * @author : zhangyu

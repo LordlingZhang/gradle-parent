@@ -1,6 +1,6 @@
-package com.zhangyu.factory.simple;
+package com.zhangyu.designmode.factory.simple;
 
-import com.zhangyu.factory.Car;
+import com.zhangyu.designmode.factory.Car;
 
 /**
  * @author : zhangyu

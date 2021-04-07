@@ -1,9 +1,9 @@
-package com.zhangyu.factory.simple;
+package com.zhangyu.designmode.factory.simple;
 
-import com.zhangyu.factory.Audi;
-import com.zhangyu.factory.Benz;
-import com.zhangyu.factory.Bmw;
-import com.zhangyu.factory.Car;
+import com.zhangyu.designmode.factory.Audi;
+import com.zhangyu.designmode.factory.Benz;
+import com.zhangyu.designmode.factory.Bmw;
+import com.zhangyu.designmode.factory.Car;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 

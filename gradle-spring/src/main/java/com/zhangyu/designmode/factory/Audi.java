@@ -1,11 +1,11 @@
-package com.zhangyu.factory;
+package com.zhangyu.designmode.factory;
 
 /**
  * @author : zhangyu
  * @description : ${描述}
  * @date : 2021/4/6
  */
-public class Benz implements Car{
+public class Audi implements Car{
 
 
     /**
@@ -15,6 +15,6 @@ public class Benz implements Car{
      */
     @Override
     public String getName() {
-        return "Benz";
+        return "Audi";
     }
 }

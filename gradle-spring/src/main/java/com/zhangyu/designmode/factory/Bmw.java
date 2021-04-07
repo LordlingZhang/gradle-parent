@@ -1,4 +1,4 @@
-package com.zhangyu.factory;
+package com.zhangyu.designmode.factory;
 
 /**
  * @author : zhangyu
