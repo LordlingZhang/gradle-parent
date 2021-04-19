@@ -2,7 +2,7 @@ package com.zhangyu.designmode.prototype;
 
 /**
  * @author : zhangyu
- * @description : ${描述}
+ * @description : 原型模式测试类
  * @date : 2021/4/15
  */
 public class PrototypeTets {
