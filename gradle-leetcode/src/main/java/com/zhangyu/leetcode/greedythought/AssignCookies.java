@@ -3,6 +3,7 @@ package com.zhangyu.leetcode.greedythought;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * @author zhangyu
@@ -47,5 +48,15 @@ public class AssignCookies {
             cookieIndex ++;
         }
         log.info("满足的孩子数量:{}", childIndex);
+    }
+
+    public void a (){
+        int[][] aa = {{1,2},{3,4}};
+        Arrays.sort(aa, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return (o1[1] < o2[1]) ? -1 : (o1[1] == o2[1]) ? 0 : 1;
+            }
+        });
     }
 }
