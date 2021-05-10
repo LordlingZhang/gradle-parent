@@ -1,5 +1,6 @@
 package com.zhangyu.leetcode.tree;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -12,6 +13,7 @@ import java.util.LinkedList;
  * @date 2021-05-10 21:56:42
  */
 @Slf4j
+@Data
 public class TreeNode {
 
     private int data;
@@ -52,19 +54,19 @@ public class TreeNode {
      *
      * @param node
      */
-    public static void printNode(TreeNode node) {
-        if (node == null) {
-            return;
-        }
-        System.out.print(node.data + " ");
-        printNode(node.lNode);
-        printNode(node.rNode);
-    }
+//    public static void printNode(TreeNode node) {
+//        if (node == null) {
+//            return;
+//        }
+//        System.out.print(node.data + " ");
+//        printNode(node.lNode);
+//        printNode(node.rNode);
+//    }
 
 
     public static void main(String[] args) {
         LinkedList<Integer> a = new LinkedList(Arrays.asList(3, 2, 9, null, null, 10, null, null, 8, null, 4));
         TreeNode treeNode = createBinaryTree(a);
-        printNode(treeNode);
+//        printNode(treeNode);
     }
 }
