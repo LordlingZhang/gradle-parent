@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 /**
  * @author zhangyu
- * @description: 二叉树排序
+ * @description: 二叉树排序 -> 使用递归的方式
  * @date 2021/5/10
  */
 @Slf4j
