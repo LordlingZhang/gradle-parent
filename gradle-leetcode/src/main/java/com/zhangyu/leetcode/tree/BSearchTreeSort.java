@@ -74,12 +74,73 @@ public class BSearchTreeSort {
      */
     public void delete(int d) {
         // 查找需要删除的节点
+        TreeNode delNode = treeNode;
+        TreeNode pDelNode = null;// 待删除节点的父节点
+        TreeNode wDelNode = null;// 待被指向的节点
+        while (delNode != null && delNode.getData() != d) {
+            pDelNode = delNode;
+            if (d > delNode.getData()) {
+                delNode = delNode.getRNode();
+            } else {
+                delNode = delNode.getLNode();
+            }
+        }
+        if (delNode == null) {
+            return;
+        }
 
-        // 当前节点为 根节点 -> 直接删除
-
+        // 当前节点为 叶子节点 -> 直接删除,父节点指向null
+        if (delNode.getLNode() == null && delNode.getRNode() == null) {
+            wDelNode = null;
+//            if (pDelNode.getLNode() == delNode) {
+//                pDelNode.setLNode(null);
+//            } else {
+//                pDelNode.setRNode(null);
+//            }
+        }
         // 当前节点 有一个子节点 -> 用子节点替换当前
-
+        else if (delNode.getLNode() == null && delNode.getRNode() != null) {
+//            if (pDelNode.getLNode() == delNode) {
+//                pDelNode.setLNode(delNode.getRNode());
+//            } else {
+//                pDelNode.setRNode(delNode.getRNode());
+//            }
+            wDelNode = delNode.getRNode();
+        } else if (delNode.getLNode() != null && delNode.getRNode() == null) {
+//            if (pDelNode.getLNode() == delNode) {
+//                pDelNode.setLNode(delNode.getLNode());
+//            } else {
+//                pDelNode.setRNode(delNode.getLNode());
+//            }
+            wDelNode = delNode.getLNode();
+        }
         // 当前节点 有两个子节点 -> 找到右节点中最小的a，替换当前,然后把a的右节点换到a的位置
+        else {
+            // 先找到右节点中最小的
+            TreeNode rMin = delNode.getRNode();
+            TreeNode prMin = delNode; // 最小的节点的父节点
+            while (rMin != null && rMin.getLNode() != null) {
+                prMin = rMin;
+                rMin = rMin.getLNode();
+            }
+            // 替换
+            delNode.setData(rMin.getData());
+//            if (prMin.getLNode() == rMin) {
+//                prMin.setLNode(rMin.getRNode()); // 因为左侧最小，所以只可能有右孩子
+//            } else {
+//                prMin.setRNode(rMin.getRNode());
+//            }
+            pDelNode = prMin;
+            wDelNode = rMin.getRNode();
+        }
+
+        // 判断删除节点的左右位置，删除开始
+        if (pDelNode.getLNode() == delNode) {
+            pDelNode.setLNode(wDelNode);
+        } else {
+            pDelNode.setRNode(wDelNode);
+        }
+
     }
 
     public static void main(String[] args) {
@@ -94,6 +155,9 @@ public class BSearchTreeSort {
                 findNode.getRNode().getData()));
         // 插入
         treeSort.insert(5);
+        System.out.println();
+        // 删除
+        treeSort.delete(6);
         System.out.println();
     }
 }
